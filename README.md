@@ -24,3 +24,8 @@ For this project, you will use the Integrated Development Environment (IDE) link
 If you need additional support, please navigate to the course page and reach out to your course instructor.
 ## FUTURE USE
 Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+
+
+## CHANGE LOG
+1. Add styling and shop name to mainscreen.html
+2. Renamed MainScreenControllerr to MainScreenController

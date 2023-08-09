@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image:
+            radial-gradient(at top left, #3E385F, transparent),
+            radial-gradient(at top right, #764D9C, transparent),
+            radial-gradient(at bottom left, #C696C2, transparent);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    margin-top: 5%;
+    padding: 2%;
+
+    background-color: #e0cdde;
+    border-radius: 12px;
+}
+
+.form-container {
+    text-align: center;
+}
+
+.input-field {
+    border-radius: 12px;
+    background: #e0cdde;
+    box-shadow: inset 20px 20px 60px #beaebd,
+    inset -20px -20px 60px #ffecff;
+}
+
+.button,
+.btn {
+    background-color: #764D9C !important;
+    border-color: #3E385F !important;
+    color: #ffff;
+    border-radius: 4px;
+}
+
+h1 {
+    text-align: center;
+    color: #764D9C;
+}
+
+h2 {
+    color: #3E385F;
+}

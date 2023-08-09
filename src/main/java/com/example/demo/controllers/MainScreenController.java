@@ -2,8 +2,6 @@ package com.example.demo.controllers;
 
 import com.example.demo.domain.Part;
 import com.example.demo.domain.Product;
-import com.example.demo.repositories.PartRepository;
-import com.example.demo.repositories.ProductRepository;
 import com.example.demo.service.PartService;
 import com.example.demo.service.ProductService;
 import org.springframework.data.repository.query.Param;
@@ -21,7 +19,7 @@ import java.util.List;
  */
 
 @Controller
-public class MainScreenControllerr {
+public class MainScreenController {
    // private final PartRepository partRepository;
    // private final ProductRepository productRepository;'
 
@@ -31,18 +29,18 @@ public class MainScreenControllerr {
     private List<Part> theParts;
     private List<Product> theProducts;
 
- /*   public MainScreenControllerr(PartRepository partRepository, ProductRepository productRepository) {
+ /*   public MainScreenController(PartRepository partRepository, ProductRepository productRepository) {
         this.partRepository = partRepository;
         this.productRepository = productRepository;
     }*/
 
-    public MainScreenControllerr(PartService partService,ProductService productService){
+    public MainScreenController(PartService partService, ProductService productService){
         this.partService=partService;
         this.productService=productService;
     }
     @GetMapping("/mainscreen")
     public String listPartsandProducts(Model theModel, @Param("partkeyword") String partkeyword, @Param("productkeyword") String productkeyword){
-        //add to the sprig model
+        //add to the spring model
         List<Part> partList=partService.listAll(partkeyword);
         theModel.addAttribute("parts",partList);
         theModel.addAttribute("partkeyword",partkeyword);
