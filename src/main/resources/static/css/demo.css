@@ -19,6 +19,11 @@ body {
     border-radius: 12px;
 }
 
+.about-container {
+    margin: 5%;
+    padding: 2% 5%;
+}
+
 .form-container {
     text-align: center;
 }
@@ -34,8 +39,12 @@ body {
 .btn {
     background-color: #764D9C !important;
     border-color: #3E385F !important;
-    color: #ffff;
+    color: #ffff !important;
     border-radius: 4px;
+}
+
+.centered-button {
+    margin: 0 50%;
 }
 
 h1 {
@@ -45,4 +54,9 @@ h1 {
 
 h2 {
     color: #3E385F;
+}
+
+p {
+    font-size: 1.25rem;
+    padding: 1% 2.5%;
 }
