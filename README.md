@@ -25,5 +25,13 @@ Task D:
 - Changes to mainscreen.html:
   - Line 21: add about link button to UI
 
+Task E:
+- BootStrapData.java
+  - Lines 19-24: delete empty comment lines
+  - Line 36: add if statement to check whether database is populated & add inventory only if no data currently exists
+  - Line 37: move OutsourcedPart thePart = null; to beginning of outsourced part inventory
+  - Lines 39 - 101: input data for outsourced parts
+  - Lines 110 - 123: input data for products
+
 Task L:
 - Used the Refactor command to rename MainScreenControllerr to MainScreenController
