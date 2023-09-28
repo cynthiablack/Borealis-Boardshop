@@ -26,7 +26,8 @@
 <p th:if="${#fields.hasErrors('minInv')}" th:errors="*{minInv}">Minimum Inventory Error</p>
 
 <p><input type="text" path="maxInv" th:field="*{maxInv}" placeholder="Maximum Inventory" class="form-control mb-4 col-4"></p>
-<p th:if="${fields.hasError('maxInv')}" th:errors="*{maxInv}">Maximum Inventory Error</p>
+<p th:if="${#fields.hasErrors('maxInv')}" th:errors="*{maxInv}">Maximum Inventory Error</p>
+
 
 <p><input type="text" th:field="*{companyName}" placeholder="Company Name" class="form-control mb-4 col-4"/></p>
 

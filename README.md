@@ -1,5 +1,6 @@
 ## CHANGE LOG
-Task C:
+Task C - Customize User Interface:
+Prompt: _Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts._
 - Changes to mainscreen.html:
   - Line 10: connect demo.css
   - Line 15: add shop name to page title
@@ -8,16 +9,9 @@ Task C:
 - Changes to demo.css:
   - Create CSS styles
 
-Task D:
+Task D - Create About page:
+Prompt: _Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen._
 - Add about.html
-- Changes to about.html:
-  - Line 5: connect demo.css
-  - Lines 6-7: connect bootstrap.css
-  - Line 10: add page name to page title
-  - Line 13: create div for styling
-  - Line 14: add page title to UI
-  - Line 15: add about text to UI
-  - Line 16: add home link button to UI
 - Changes to demo.css:
   - Lines 22-25: add spacing to about.html page
   - Lines 46-48: add centered-button styling to center home link button
@@ -27,7 +21,8 @@ Task D:
 - Changes to MainScreenController.java:
   - Lines 49-52: add @GetMapping to return about.html
 
-Task E:
+Task E - Add sample inventory:
+Prompt: _Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database._
 - Changes to BootStrapData.java
   - Line 36: add if statement to check whether part repository is populated & add inventory if no data currently exists
   - Line 37: move OutsourcedPart thePart = null; to beginning of outsourced part inventory
@@ -40,7 +35,11 @@ Task E:
   - Lines 19-22: autowire PartRepository & ProductRepository
   - Lines 29-34: condense two MainScreenController constructors into one
   
-Task F:
+Task F - Add "Buy Now" button:
+Prompt: _Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:
+  - The “Buy Now” button must be next to the buttons that update and delete products.
+  - The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
+  - Display a message that indicates the success or failure of a purchase._
 - Add buyproduct.html
 - Add failedpurchase.html
 - Changes to mainscreen.html:
@@ -50,7 +49,13 @@ Task F:
   - Line 30-31: inject ProductRepository
   - Lines 170-189: add @GetMapping to make Buy Now button functional
 
-Task G:
+Task G - Track Min & Max Inventory:
+Prompt: _Modify the parts to track maximum and minimum inventory by doing the following:
+  - Add additional fields to the part entity for maximum and minimum inventory.
+  - Modify the sample inventory to include the maximum and minimum fields.
+  - Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
+  - Rename the file the persistent storage is saved to.
+  - Modify the code to enforce that the inventory is between or at the minimum and maximum value._
 - Renamed spring-boot-h2-db102 to spring-boot-borealisboardshop-db102
 - Change to application.properties:
   - Line 6: updated spring.datasource.url name
@@ -73,7 +78,11 @@ Task G:
   - Lines 42-43: add table column headings for minimum and maximum inventory values
   - Lines 52-53: add minInv and maxInv fields to parts table
 
-Task H:
+Task H - Add Validation:
+Prompt: _Add validation for between or at the maximum and minimum fields. The validation must include the following:
+  - Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
+  - Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
+  - Display error messages when adding and updating parts if the inventory is greater than the maximum._
 - Changes to Part.java:
   - Lines 98-103: add methods to check whether inventory is above minimums and below maximum
 - Changes to AddInhousePartController.java:
@@ -81,15 +90,22 @@ Task H:
 - Changes to AddOutsourcedPartController.java:
   - Lines 45-54: add booleans to check whether inventory is above minimums and below maximum
   
-Task I:
+Task I - Add Unit Testing:
+Prompt: _At least two functional unit tests are added for the maximum and minimum fields. Both unit tests are added to the PartTest class in the test package._
 - Changes to PartTest.java:
   - Lines 104-118: add test to check below min and at min inventory validation
   - Lines 120-134: add test to check above max and at max inventory validation
   - Lines 136-146: add test to check between min & max inventory validation
 
-Task L:
+Task J - Code Cleanup:
+Prompt: _The submission removes the class files for any unused validators to clean the code._
+- removed DeletePartValidator file
+
+Task L - Professionalism:
+Prompt: _ Demonstrate professional communication in the content and presentation of your submission._
 - General code improvements:
   - Remove excess spacing and unused code
   - Used the Refactor command to rename MainScreenControllerr to MainScreenController
+  - Enforce consistent styling across all pages
 - Change to application.properties:
   - Line 14: enable JMX
