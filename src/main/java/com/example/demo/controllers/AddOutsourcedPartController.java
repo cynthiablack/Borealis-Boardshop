@@ -19,12 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
-/**
- *
- *
- *
- *
- */
 @Controller
 public class AddOutsourcedPartController {
     @Autowired
@@ -43,6 +37,11 @@ public class AddOutsourcedPartController {
         if(bindingResult.hasErrors()){
             return "OutsourcedPartForm";
         }
+        boolean isValid = part.checkInv(part.getInv(), part.getMinInv(), part.getMaxInv());
+        if(!isValid) {
+            bindingResult.rejectValue("inv", "error.inv", "Inventory must be between " + part.getMinInv() + " and " + part.getMaxInv());
+            return "OutsourcedPartForm";
+        }
         else{
         OutsourcedPartService repo=context.getBean(OutsourcedPartServiceImpl.class);
         OutsourcedPart op=repo.findById((int)part.getId());
@@ -50,7 +49,4 @@ public class AddOutsourcedPartController {
             repo.save(part);
         return "confirmationaddpart";}
     }
-
-
-
 }

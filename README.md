@@ -29,11 +29,11 @@ Task D:
 
 Task E:
 - Changes to BootStrapData.java
-  - Lines 19-24: delete empty comment lines
-  - Line 36: add if statement to check whether database is populated & add inventory only if no data currently exists
+  - Line 36: add if statement to check whether part repository is populated & add inventory if no data currently exists
   - Line 37: move OutsourcedPart thePart = null; to beginning of outsourced part inventory
-  - Lines 39 - 101: input data for outsourced parts
-  - Lines 110 - 123: input data for products
+  - Lines 39-117: input data for outsourced parts
+  - Line 127: add if statement to check whether product repository is populated & add inventory if no data currently exists
+  - Lines 128-141: input data for products
 - Changes to MainScreenController.java
   - Line 5: import PartRepository
   - Line 6: import ProductRepository
@@ -44,16 +44,38 @@ Task F:
 - Add buyproduct.html
 - Add failedpurchase.html
 - Changes to mainscreen.html:
-  - Line 89: add Buy Now button to UI
+  - Line 93: add Buy Now button to UI
 - Changes to AddProductController.java
   - Line 20: import Optional utility
   - Line 30-31: inject ProductRepository
   - Lines 170-189: add @GetMapping to make Buy Now button functional
 
+Task G:
+- Renamed spring-boot-h2-db102 to spring-boot-borealisboardshop-db102
+- Change to application.properties:
+  - Line 6: updated spring.datasource.url name
+- Changes to Part.java:
+  - Lines 24-26: add minInv and maxInv ints
+  - Lines 36-42: add minInv and maxInv to Part constructor
+  - Lines 83-87: add getters and setters for minInv and maxInv
+  - Lines 89-96: add method to check whether inventory falls between minInv and maxInv
+- Changes to AddInhousePartController.java:
+  - Lines 40-44: use check from Part.java to determine whether inventory falls between minInv and maxInv
+- Changes to AddOutsourcedPartController.java:
+  - Lines 39-43: use check from Part.java to determine whether inventory falls between minInv and maxInv
+- Changes to BootStrapData.java:
+  - Lines 43-44, 53-54, 63-64, 73-74, 83-84, 93-94, 103-104, 113-114: add minInv and maxInv values to all parts
+- Changes to InhousePartForm.html:
+  - Lines 24-28: add fields for user entry of minInv and maxInv
+- Changes to OutsourcedPartForm.html:
+  - Lines 25-29: add fields for user entry of minInv and maxInv
+- Changes to mainscreen.html:
+  - Lines 42-43: add table column headings for minimum and maximum inventory values
+  - Lines 52-53: add minInv and maxInv fields to parts table
+
 Task L:
 - General code improvements:
   - Remove excess spacing and unused code
-- Changes to MainScreenControllerr.java:
   - Used the Refactor command to rename MainScreenControllerr to MainScreenController
-- Changes to application.properties:
+- Change to application.properties:
   - Line 14: enable JMX

@@ -18,12 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
-/**
- *
- *
- *
- *
- */
 @Controller
 public class AddInhousePartController{
     @Autowired
@@ -40,6 +34,11 @@ public class AddInhousePartController{
     public String submitForm(@Valid @ModelAttribute("inhousepart") InhousePart part, BindingResult theBindingResult, Model theModel){
         theModel.addAttribute("inhousepart",part);
         if(theBindingResult.hasErrors()){
+            return "InhousePartForm";
+        }
+        boolean isValid = part.checkInv(part.getInv(), part.getMinInv(), part.getMaxInv());
+        if(!isValid) {
+            theBindingResult.rejectValue("inv", "error.inv", "Inventory must be between " + part.getMinInv() + " and " + part.getMaxInv());
             return "InhousePartForm";
         }
         else{

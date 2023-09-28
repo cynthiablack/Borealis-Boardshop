@@ -39,7 +39,9 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart basicDeck = new OutsourcedPart();
             basicDeck.setCompanyName("Acme Boards");
             basicDeck.setName("Basic Deck");
-            basicDeck.setInv(20);
+            basicDeck.setInv(10);
+            basicDeck.setMinInv(1);
+            basicDeck.setMaxInv(10);
             basicDeck.setPrice(25.0);
             basicDeck.setId(100L);
             outsourcedPartRepository.save(basicDeck);
@@ -47,7 +49,9 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart signatureDeck = new OutsourcedPart();
             signatureDeck.setCompanyName("Tony Hawk Signature Series");
             signatureDeck.setName("Tony Hawk 180");
-            signatureDeck.setInv(10);
+            signatureDeck.setInv(2);
+            signatureDeck.setMinInv(1);
+            signatureDeck.setMaxInv(10);
             signatureDeck.setPrice(45.0);
             signatureDeck.setId(100L);
             outsourcedPartRepository.save(signatureDeck);
@@ -55,7 +59,9 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart santaCruzDeck = new OutsourcedPart();
             santaCruzDeck.setCompanyName("Santa Cruz");
             santaCruzDeck.setName("Classic Dot Deck");
-            santaCruzDeck.setInv(15);
+            santaCruzDeck.setInv(5);
+            santaCruzDeck.setMinInv(1);
+            santaCruzDeck.setMaxInv(10);
             santaCruzDeck.setPrice(60.0);
             santaCruzDeck.setId(100L);
             outsourcedPartRepository.save(santaCruzDeck);
@@ -63,7 +69,9 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart aceTruck = new OutsourcedPart();
             aceTruck.setCompanyName("Ace Trucks");
             aceTruck.setName("Classic Truck");
-            aceTruck.setInv(15);
+            aceTruck.setInv(10);
+            aceTruck.setMinInv(4);
+            aceTruck.setMaxInv(20);
             aceTruck.setPrice(45.0);
             aceTruck.setId(100L);
             outsourcedPartRepository.save(aceTruck);
@@ -71,7 +79,9 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart thunderTruck = new OutsourcedPart();
             thunderTruck.setCompanyName("Thunder");
             thunderTruck.setName("Team Hollow Truck");
-            thunderTruck.setInv(10);
+            thunderTruck.setInv(4);
+            thunderTruck.setMinInv(2);
+            thunderTruck.setMaxInv(20);
             thunderTruck.setPrice(25.0);
             thunderTruck.setId(100L);
             outsourcedPartRepository.save(thunderTruck);
@@ -79,7 +89,9 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart bonesHawkWheel = new OutsourcedPart();
             bonesHawkWheel.setCompanyName("Bones");
             bonesHawkWheel.setName("SPF Hawk Tattoo Wheel");
-            bonesHawkWheel.setInv(5);
+            bonesHawkWheel.setInv(8);
+            bonesHawkWheel.setMinInv(4);
+            bonesHawkWheel.setMaxInv(40);
             bonesHawkWheel.setPrice(40.0);
             bonesHawkWheel.setId(100L);
             outsourcedPartRepository.save(bonesHawkWheel);
@@ -87,7 +99,9 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart bonesSidecutWheel = new OutsourcedPart();
             bonesSidecutWheel.setCompanyName("Bones");
             bonesSidecutWheel.setName("Formula V5 Sidecut Wheels");
-            bonesSidecutWheel.setInv(10);
+            bonesSidecutWheel.setInv(4);
+            bonesSidecutWheel.setMinInv(4);
+            bonesSidecutWheel.setMaxInv(40);
             bonesSidecutWheel.setPrice(25.0);
             bonesSidecutWheel.setId(100L);
             outsourcedPartRepository.save(bonesSidecutWheel);
@@ -95,7 +109,9 @@ public class BootStrapData implements CommandLineRunner {
             OutsourcedPart miniWheel = new OutsourcedPart();
             miniWheel.setCompanyName("Mini Logo");
             miniWheel.setName("A-Cut Wheels");
-            miniWheel.setInv(15);
+            miniWheel.setInv(20);
+            miniWheel.setMinInv(4);
+            miniWheel.setMaxInv(40);
             miniWheel.setPrice(20.0);
             miniWheel.setId(100L);
             outsourcedPartRepository.save(miniWheel);
