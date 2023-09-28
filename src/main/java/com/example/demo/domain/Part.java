@@ -95,6 +95,13 @@ public abstract class Part implements Serializable {
         }
     }
 
+    public boolean checkInvAboveMin(int inv, int minInv) {
+        return inv >= minInv;
+    }
+    public boolean checkInvBelowMax(int inv, int maxInv) {
+        return inv <= maxInv;
+    }
+
     public Set<Product> getProducts() {
         return products;
     }

@@ -73,6 +73,14 @@ Task G:
   - Lines 42-43: add table column headings for minimum and maximum inventory values
   - Lines 52-53: add minInv and maxInv fields to parts table
 
+Task H:
+- Changes to Part.java:
+  - Lines 98-103: add methods to check whether inventory is above minimums and below maximum
+- Changes to AddInhousePartController.java:
+  - Lines 44-53: add booleans to check whether inventory is above minimums and below maximum
+- Changes to AddOutsourcedPartController.java:
+  - Lines 45-54: add booleans to check whether inventory is above minimums and below maximum
+  
 Task L:
 - General code improvements:
   - Remove excess spacing and unused code
