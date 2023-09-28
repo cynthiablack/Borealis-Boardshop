@@ -81,6 +81,12 @@ Task H:
 - Changes to AddOutsourcedPartController.java:
   - Lines 45-54: add booleans to check whether inventory is above minimums and below maximum
   
+Task I:
+- Changes to PartTest.java:
+  - Lines 104-118: add test to check below min and at min inventory validation
+  - Lines 120-134: add test to check above max and at max inventory validation
+  - Lines 136-146: add test to check between min & max inventory validation
+
 Task L:
 - General code improvements:
   - Remove excess spacing and unused code

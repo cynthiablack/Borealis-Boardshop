@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Project: demoDarbyFrameworks2-master
@@ -99,6 +99,50 @@ class PartTest {
         assertEquals(inv,partIn.getInv());
         partOut.setInv(inv);
         assertEquals(inv,partOut.getInv());
+    }
+
+    @Test
+    void testMinInvValue() {
+        InhousePart testPart = new InhousePart();
+        // set initial values
+        testPart.setMinInv(1);
+        testPart.setMaxInv(5);
+
+        // testing minimum
+        testPart.setInv(0);
+        assertFalse(testPart.checkInv(testPart.getInv(), testPart.getMinInv(), testPart.getMaxInv()));
+
+        // testing at minimum
+        testPart.setInv(1);
+        assertTrue(testPart.checkInv(testPart.getInv(), testPart.getMinInv(), testPart.getMaxInv()));
+    }
+
+    @Test
+    void testMaxInvValue() {
+        InhousePart testPart = new InhousePart();
+        // set initial values
+        testPart.setMinInv(1);
+        testPart.setMaxInv(5);
+
+        // testing maximum
+        testPart.setInv(6);
+        assertFalse(testPart.checkInv(testPart.getInv(), testPart.getMinInv(), testPart.getMaxInv()));
+
+        // testing at maximum
+        testPart.setInv(5);
+        assertTrue(testPart.checkInv(testPart.getInv(), testPart.getMinInv(), testPart.getMaxInv()));
+    }
+
+    @Test
+    void testBetweenMinMaxInvValues() {
+        InhousePart testPart = new InhousePart();
+        // set initial values
+        testPart.setMinInv(1);
+        testPart.setMaxInv(5);
+
+        // testing value between min & max
+        testPart.setInv(5);
+        assertTrue(testPart.checkInv(testPart.getInv(), testPart.minInv, testPart.maxInv));
     }
 
     @Test
