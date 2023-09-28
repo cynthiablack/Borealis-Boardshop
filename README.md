@@ -23,15 +23,37 @@ Task D:
   - Lines 46-48: add centered-button styling to center home link button
   - Lines 59-62: font-size formatting for about.html paragraph text
 - Changes to mainscreen.html:
-  - Line 21: add about link button to UI
+  - Line 21: add about link button to UI & connect to mapping via Thymeleaf
+- Changes to MainScreenController.java:
+  - Lines 49-52: add @GetMapping to return about.html
 
 Task E:
-- BootStrapData.java
+- Changes to BootStrapData.java
   - Lines 19-24: delete empty comment lines
   - Line 36: add if statement to check whether database is populated & add inventory only if no data currently exists
   - Line 37: move OutsourcedPart thePart = null; to beginning of outsourced part inventory
   - Lines 39 - 101: input data for outsourced parts
   - Lines 110 - 123: input data for products
+- Changes to MainScreenController.java
+  - Line 5: import PartRepository
+  - Line 6: import ProductRepository
+  - Lines 19-22: autowire PartRepository & ProductRepository
+  - Lines 29-34: condense two MainScreenController constructors into one
+  
+Task F:
+- Add buyproduct.html
+- Add failedpurchase.html
+- Changes to mainscreen.html:
+  - Line 89: add Buy Now button to UI
+- Changes to AddProductController.java
+  - Line 20: import Optional utility
+  - Line 30-31: inject ProductRepository
+  - Lines 170-189: add @GetMapping to make Buy Now button functional
 
 Task L:
-- Used the Refactor command to rename MainScreenControllerr to MainScreenController
+- General code improvements:
+  - Remove excess spacing and unused code
+- Changes to MainScreenControllerr.java:
+  - Used the Refactor command to rename MainScreenControllerr to MainScreenController
+- Changes to application.properties:
+  - Line 14: enable JMX

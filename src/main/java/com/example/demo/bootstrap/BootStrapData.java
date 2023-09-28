@@ -27,13 +27,13 @@ public class BootStrapData implements CommandLineRunner {
     public BootStrapData(PartRepository partRepository, ProductRepository productRepository, OutsourcedPartRepository outsourcedPartRepository) {
         this.partRepository = partRepository;
         this.productRepository = productRepository;
-        this.outsourcedPartRepository=outsourcedPartRepository;
+        this.outsourcedPartRepository = outsourcedPartRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
-        if (partRepository.count() == 0 && productRepository.count() == 0 && outsourcedPartRepository.count() == 0) {
+        if (partRepository.count() == 0 && outsourcedPartRepository.count() == 0) {
             OutsourcedPart thePart = null;
 
             OutsourcedPart basicDeck = new OutsourcedPart();
@@ -106,7 +106,9 @@ public class BootStrapData implements CommandLineRunner {
             }
 
             System.out.println(thePart.getCompanyName());
+        }
 
+        if (productRepository.count() == 0) {
             Product basicSkateboard = new Product("basic board", 70.0, 10);
             productRepository.save(basicSkateboard);
 
