@@ -8,7 +8,7 @@ body {
             radial-gradient(at top right, #764D9C, transparent),
             radial-gradient(at bottom left, #C696C2, transparent);
     background-size: cover;
-    background-repeat: no-repeat;
+    padding: 1vh 0vw;
 }
 
 .container {
@@ -33,6 +33,14 @@ body {
     background: #e0cdde;
     box-shadow: inset 20px 20px 60px #beaebd,
     inset -20px -20px 60px #ffecff;
+}
+
+.input-override {
+    background: #ffff;
+    border: #3E385F;
+    border-radius: 4px;
+    width: 40%;
+    margin-bottom: 1.25vh;
 }
 
 .button,

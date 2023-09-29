@@ -2,9 +2,9 @@
 Task C - Customize User Interface:
 Prompt: _Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts._
 - Changes to mainscreen.html:
-  - Line 10: connect demo.css
-  - Line 15: add shop name to page title
-  - Line 20: add shop name to UI
+  - Line 8: connect demo.css
+  - Line 13: add shop name to page title
+  - Line 18: add shop name to UI
   - add classes for styling (multiple lines)
 - Changes to demo.css:
   - Create CSS styles
@@ -14,12 +14,12 @@ Prompt: _Add an “About” page to the application to describe your chosen cust
 - Add about.html
 - Changes to demo.css:
   - Lines 22-25: add spacing to about.html page
-  - Lines 46-48: add centered-button styling to center home link button
-  - Lines 59-62: font-size formatting for about.html paragraph text
+  - Lines 54-56: add centered-button styling to center home link button
+  - Lines 67-70: font-size formatting for about.html paragraph text
 - Changes to mainscreen.html:
-  - Line 21: add about link button to UI & connect to mapping via Thymeleaf
+  - Line 19: add about link button to UI & connect to mapping via Thymeleaf
 - Changes to MainScreenController.java:
-  - Lines 49-52: add @GetMapping to return about.html
+  - Lines 49-53: add @GetMapping to return about.html
 
 Task E - Add sample inventory:
 Prompt: _Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database._
@@ -43,11 +43,11 @@ Prompt: _Add a “Buy Now” button to your product list. Your “Buy Now” but
 - Add buyproduct.html
 - Add failedpurchase.html
 - Changes to mainscreen.html:
-  - Line 93: add Buy Now button to UI
+  - Line 91: add Buy Now button to UI
 - Changes to AddProductController.java
   - Line 20: import Optional utility
   - Line 30-31: inject ProductRepository
-  - Lines 170-189: add @GetMapping to make Buy Now button functional
+  - Lines 170-190: add @GetMapping to make Buy Now button functional
 
 Task G - Track Min & Max Inventory:
 Prompt: _Modify the parts to track maximum and minimum inventory by doing the following:
@@ -61,22 +61,24 @@ Prompt: _Modify the parts to track maximum and minimum inventory by doing the fo
   - Line 6: updated spring.datasource.url name
 - Changes to Part.java:
   - Lines 24-26: add minInv and maxInv ints
-  - Lines 36-42: add minInv and maxInv to Part constructor
+  - Lines 40-41: add minInv and maxInv to Part constructor
   - Lines 83-87: add getters and setters for minInv and maxInv
   - Lines 89-96: add method to check whether inventory falls between minInv and maxInv
 - Changes to AddInhousePartController.java:
-  - Lines 40-44: use check from Part.java to determine whether inventory falls between minInv and maxInv
+  - Lines 39-53: use check from Part.java to determine whether inventory falls between minInv and maxInv
 - Changes to AddOutsourcedPartController.java:
-  - Lines 39-43: use check from Part.java to determine whether inventory falls between minInv and maxInv
+  - Lines 40-54: use check from Part.java to determine whether inventory falls between minInv and maxInv
 - Changes to BootStrapData.java:
   - Lines 43-44, 53-54, 63-64, 73-74, 83-84, 93-94, 103-104, 113-114: add minInv and maxInv values to all parts
 - Changes to InhousePartForm.html:
-  - Lines 24-28: add fields for user entry of minInv and maxInv
+  - Line 41: add field for user entry of minInv
+  - Line 46: add field for user entry of maxInv
 - Changes to OutsourcedPartForm.html:
-  - Lines 25-29: add fields for user entry of minInv and maxInv
+  - Line 41: add field for user entry of minInv
+  - Line 46: add field for user entry of maxInv
 - Changes to mainscreen.html:
-  - Lines 42-43: add table column headings for minimum and maximum inventory values
-  - Lines 52-53: add minInv and maxInv fields to parts table
+  - Lines 40-41: add table column headings for minimum and maximum inventory values
+  - Lines 50-51: add minInv and maxInv fields to parts table
 
 Task H - Add Validation:
 Prompt: _Add validation for between or at the maximum and minimum fields. The validation must include the following:
@@ -107,5 +109,6 @@ Prompt: _ Demonstrate professional communication in the content and presentation
   - Remove excess spacing and unused code
   - Used the Refactor command to rename MainScreenControllerr to MainScreenController
   - Enforce consistent styling across all pages
+  - Add labels to input fields where missing
 - Change to application.properties:
   - Line 14: enable JMX
