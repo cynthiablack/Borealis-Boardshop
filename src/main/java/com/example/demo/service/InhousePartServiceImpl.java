@@ -10,12 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-/**
- *
- *
- *
- *
- */
 @Service
 public class InhousePartServiceImpl implements InhousePartService {
     private InhousePartRepository partRepository;

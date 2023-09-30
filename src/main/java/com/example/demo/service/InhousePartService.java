@@ -6,12 +6,6 @@ import com.example.demo.domain.Part;
 
 import java.util.List;
 
-/**
- *
- *
- *
- *
- */
 public interface InhousePartService {
     public List<InhousePart> findAll();
     public InhousePart findById(int theId);
