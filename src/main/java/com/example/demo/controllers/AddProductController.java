@@ -122,17 +122,24 @@ public class AddProductController {
     public AddProductController(PartService partService) {
         this.partService = partService;
     }
-// make the add and remove buttons work
 
     @GetMapping("/associatepart")
     public String associatePart(@Valid @RequestParam("partID") int theID, Model theModel) {
-        theModel.addAttribute("product", product);
-        Product product1 = new Product();
+        theModel.addAttribute("product", product1);
+
         if (product1.getName() == null) {
             return "saveproductscreen";
         } else {
             product1.getParts().add(partService.findById(theID));
+            Part partToAssociate = partService.findById(theID);
+
+            if (partToAssociate.getInv() <= partToAssociate.getMinInv()) {
+                return "notenoughparts";
+            }
+
             partService.findById(theID).getProducts().add(product1);
+            partToAssociate.setInv(partToAssociate.getInv() - 1);
+
             ProductService productService = context.getBean(ProductServiceImpl.class);
             productService.save(product1);
             partService.save(partService.findById(theID));
@@ -145,15 +152,22 @@ public class AddProductController {
             theModel.addAttribute("availparts", availParts);
             return "productForm";
         }
-        //        return "confirmationassocpart";
     }
 
     @GetMapping("/removepart")
-    public String removePart(@RequestParam("partID") int theID, Model theModel) {
+    public String removePart(@Valid @RequestParam("partID") int theID, Model theModel) {
         theModel.addAttribute("product", product);
-        //  Product product1=new Product();
+
         product1.getParts().remove(partService.findById(theID));
+        Part partToRemove = partService.findById(theID);
+
+        if (partToRemove.getInv() >= partToRemove.getMaxInv()) {
+            return "toomanyparts";
+        }
+
         partService.findById(theID).getProducts().remove(product1);
+        partToRemove.setInv(partToRemove.getInv() + 1);
+
         ProductService productService = context.getBean(ProductServiceImpl.class);
         productService.save(product1);
         partService.save(partService.findById(theID));
