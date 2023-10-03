@@ -62,19 +62,19 @@ public class AddProductController {
             theModel.addAttribute("assparts", product2.getParts());
             return "productForm";
         }
-        //       theModel.addAttribute("assparts", assparts);
-        //       this.product=product;
-//        product.getParts().addAll(assparts);
         else {
             ProductService repo = context.getBean(ProductServiceImpl.class);
             if (product.getId() != 0) {
                 Product product2 = repo.findById((int) product.getId());
                 PartService partService1 = context.getBean(PartServiceImpl.class);
+
                 if (product.getInv() - product2.getInv() > 0) {
                     for (Part p : product2.getParts()) {
                         int inv = p.getInv();
-                        p.setInv(inv - (product.getInv() - product2.getInv()));
-                        partService1.save(p);
+                        if (p.getInv() > 0) {
+                            p.setInv(inv - (product.getInv() - product2.getInv()));
+                            partService1.save(p);
+                        }
                     }
                 }
             } else {
@@ -91,8 +91,8 @@ public class AddProductController {
         ProductService repo = context.getBean(ProductServiceImpl.class);
         Product theProduct = repo.findById(theId);
         product1 = theProduct;
-        //    this.product=product;
-        //set the employ as a model attibute to prepopulate the form
+
+        //set the employ as a model attribute to prepopulate the form
         theModel.addAttribute("product", theProduct);
         theModel.addAttribute("assparts", theProduct.getParts());
         List<Part> availParts = new ArrayList<>();
@@ -133,12 +133,7 @@ public class AddProductController {
             product1.getParts().add(partService.findById(theID));
             Part partToAssociate = partService.findById(theID);
 
-            if (partToAssociate.getInv() <= partToAssociate.getMinInv()) {
-                return "notenoughparts";
-            }
-
             partService.findById(theID).getProducts().add(product1);
-            partToAssociate.setInv(partToAssociate.getInv() - 1);
 
             ProductService productService = context.getBean(ProductServiceImpl.class);
             productService.save(product1);
@@ -155,24 +150,17 @@ public class AddProductController {
     }
 
     @GetMapping("/removepart")
-    public String removePart(@Valid @RequestParam("partID") int theID, Model theModel) {
+    public String removePart(@RequestParam("partID") int theID, Model theModel) {
         theModel.addAttribute("product", product);
 
         product1.getParts().remove(partService.findById(theID));
-        Part partToRemove = partService.findById(theID);
-
-        if (partToRemove.getInv() >= partToRemove.getMaxInv()) {
-            return "toomanyparts";
-        }
-
         partService.findById(theID).getProducts().remove(product1);
-        partToRemove.setInv(partToRemove.getInv() + 1);
-
         ProductService productService = context.getBean(ProductServiceImpl.class);
         productService.save(product1);
         partService.save(partService.findById(theID));
         theModel.addAttribute("product", product1);
         theModel.addAttribute("assparts", product1.getParts());
+
         List<Part> availParts = new ArrayList<>();
         for (Part p : partService.findAll()) {
             if (!product1.getParts().contains(p)) availParts.add(p);
