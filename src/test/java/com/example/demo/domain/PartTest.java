@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Project: demoDarbyFrameworks2-master
@@ -156,4 +156,48 @@ class PartTest {
         partOut.setId(1l);
         assertEquals(partIn.hashCode(),partOut.hashCode());
     }
+
+    @Test
+    void testMinInvValue() {
+        // set initial values
+        partIn.setMinInv(1);
+        partIn.setMaxInv(5);
+        partOut.setMinInv(1);
+        partOut.setMaxInv(5);
+
+        // testing minimum
+        partIn.setInv(0);
+        assertFalse(partIn.checkInv(partIn.getInv(), partIn.getMinInv(), partIn.getMaxInv()));
+        partOut.setInv(0);
+        assertFalse(partOut.checkInv(partOut.getInv(), partOut.getMinInv(), partOut.getMaxInv()));
+
+        // testing at minimum
+        partIn.setInv(1);
+        assertTrue(partIn.checkInv(partIn.getInv(), partIn.getMinInv(), partIn.getMaxInv()));
+        partOut.setInv(1);
+        assertTrue(partOut.checkInv(partOut.getInv(), partOut.getMinInv(), partOut.getMaxInv()));
+    }
+
+    @Test
+    void testMaxInvValue() {
+        // set initial values
+        partIn.setMinInv(1);
+        partIn.setMaxInv(5);
+        partOut.setMinInv(1);
+        partOut.setMaxInv(5);
+
+        // testing above max
+        partIn.setInv(6);
+        assertFalse(partIn.checkInv(partIn.getInv(), partIn.minInv, partIn.maxInv));
+        partOut.setInv(6);
+        assertFalse(partOut.checkInv(partOut.getInv(), partOut.minInv, partOut.maxInv));
+
+        // testing at max
+        partIn.setInv(5);
+        assertTrue(partIn.checkInv(partIn.getInv(), partIn.minInv, partIn.maxInv));
+        partOut.setInv(5);
+        assertTrue(partOut.checkInv(partOut.getInv(), partOut.minInv, partOut.maxInv));
+
+    }
 }
+
